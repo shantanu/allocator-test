@@ -1,0 +1,16 @@
+services:
+  cpp-runtime:
+    build: ./cpp-runtime/
+    volumes:
+      - data:/data
+  jupyter-notebook:
+    build: ./jupyter-notebook/
+    working_dir: /app
+    volumes: 
+      - data:/data
+      - ./jupyter-notebook:/app
+    ports:
+      - 8888:8888
+
+volumes:
+  data:
